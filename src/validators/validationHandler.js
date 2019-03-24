@@ -24,7 +24,7 @@ function validationHandler(request, response, next) {
       }
     })
     .catch(error => {
-      response.status(500).send({ message: 'Error validation', error });
+      return response.status(500).send({ message: 'Error validation', error });
     });
 } // End validationHandler
 
