@@ -87,8 +87,16 @@ function userLogin(request, response) {
   });
 } // End userLogin
 
+function validateToken(request, response) {
+  const { sub: id, name } = request.user;
+  response
+    .status(200)
+    .send({ message: 'keep calm and carry on', result: { id, name } });
+} // End validateToken
+
 module.exports = {
   test,
   postUser,
-  userLogin
+  userLogin,
+  validateToken
 };

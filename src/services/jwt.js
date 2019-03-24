@@ -10,7 +10,7 @@ exports.createToken = user => {
     name: user.email,
     iat: moment().unix(),
     exp: moment()
-      .add(2, 's')
+      .add(12, 'h')
       .unix()
   };
   return jwt.encode(payload, secretJWT);

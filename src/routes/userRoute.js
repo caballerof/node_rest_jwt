@@ -8,10 +8,17 @@ const validationHandler = require('../validators/validationHandler');
 /** Security */
 const { authenticate } = require('../middlewares/authenticate');
 /** Controllers */
-const { test, postUser, userLogin } = require('../controllers/userController');
+const {
+  test,
+  postUser,
+  userLogin,
+  validateToken
+} = require('../controllers/userController');
 
-api.get('/user', authenticate, test);
+api.get('/user', test);
 api.post('/user', userValidation('postUser'), validationHandler, postUser);
+/** */
+api.get('/user/login', authenticate, validateToken);
 api.post(
   '/user/login',
   userValidation('postUser'),
