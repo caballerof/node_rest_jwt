@@ -4,7 +4,11 @@
   "description": "Base project for node Rest API",
   "main": "index.js",
   "scripts": {
-    "server": "nodemon index.js"
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "nodemon index.js",
+    "client": "npm run start --prefix ../frontend_react_jwt",
+    "dev": "concurrently \"npm run server\" \"npm run client\" "
   },
   "keywords": [
     "node"
@@ -22,9 +26,11 @@
     "jwt-simple": "^0.5.5",
     "moment": "^2.24.0",
     "mongoose": "^5.4.19",
-    "mongoose-pagination": "^1.0.0"
+    "mongoose-pagination": "^1.0.0",
+    "twilio": "3.29.2"
   },
   "devDependencies": {
+    "concurrently": "^4.1.0",
     "nodemon": "^1.18.10"
   }
 }

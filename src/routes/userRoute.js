@@ -12,15 +12,23 @@ const {
   test,
   postUser,
   userLogin,
-  validateToken
+  validateToken,
+  userLogout,
+  sendSms,
+  verification,
+  getNumbers
 } = require('../controllers/userController');
 
-api.get('/user', test);
-api.post('/user', userValidation('postUser'), validationHandler, postUser);
+api.get('/users/test', test);
+api.get('/users/numbers', getNumbers);
+api.post('/users/sendsms', sendSms);
+api.put('/users/verification', verification);
+api.post('/users', userValidation('postUser'), validationHandler, postUser);
 /** */
-api.get('/user/login', authenticate, validateToken);
+api.get('/users/login', authenticate, validateToken);
+api.get('/users/logout', authenticate, userLogout);
 api.post(
-  '/user/login',
+  '/users/login',
   userValidation('postUser'),
   validationHandler,
   userLogin

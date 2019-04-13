@@ -12,7 +12,7 @@ const log = console.log;
 /************************** */
 /* Configuration variables  *
 /************************** */
-const dbMongoName = 'project';
+const dbMongoName = 'kueski';
 const pathToDBMongo = `mongodb://localhost:27017/${dbMongoName}`;
 const serverPort = process.env.PORT || 3977;
 

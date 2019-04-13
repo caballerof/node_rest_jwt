@@ -12,7 +12,7 @@ exports.authenticate = (request, response, next) => {
     request.cookies.token;
 
   if (!token) {
-    response.status(401).send({ message: 'Token is requiere' });
+    return response.status(401).send({ message: 'Token is requiere' });
   }
 
   try {
